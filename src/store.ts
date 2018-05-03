@@ -1,10 +1,12 @@
+import { IStore } from './i-store';
+
 interface ISub {
   handler: Function;
   uid: string;
   type: string;
 }
 
-export class Store<T>{
+export class Store<T> implements IStore<T>{
   private _state: T;
   private subs: ISub[] = [];
 
