@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "es5"
+        ,"module": "amd"
+        ,"moduleResolution": "classic"
+        ,"outDir": "./dist"
+        ,"experimentalDecorators": true
+        ,"noImplicitAny":true		
+        ,"sourceMap": false        
+		,"declaration": false
+		,"removeComments":true
+		,"noEmitHelpers":true 
+		,"suppressImplicitAnyIndexErrors": true
+        ,"lib":["es2015", "dom","es5","scripthost","es6"]
+    },
+    "exclude": [
+        "node_modules"
+		,"dist"
+    ],
+    "compileOnSave": false
+}

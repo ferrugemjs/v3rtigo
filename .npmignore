@@ -1,0 +1,11 @@
+node_modules
+jspm_packages
+src
+assets
+tasks
+package-lock.json
+
+#dist dir
+dist/example
+dist/incremental-dom.js
+
