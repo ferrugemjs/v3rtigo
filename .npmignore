@@ -4,6 +4,10 @@ src
 assets
 tasks
 package-lock.json
+tsconfig.json
+tslint.json
+editor.config
+
 
 #dist dir
 dist/example

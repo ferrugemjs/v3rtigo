@@ -5,9 +5,9 @@
         ,"moduleResolution": "classic"
         ,"outDir": "./dist"
         ,"experimentalDecorators": true
-        ,"noImplicitAny":true		
-        ,"sourceMap": false        
-		,"declaration": false
+        ,"noImplicitAny":true
+        ,"sourceMap": false
+		,"declaration": true
 		,"removeComments":true
 		,"noEmitHelpers":true 
 		,"suppressImplicitAnyIndexErrors": true
