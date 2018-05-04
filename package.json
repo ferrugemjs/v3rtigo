@@ -1,6 +1,6 @@
 {
   "name": "v3rtigo",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "state management library for ferrugemjs applications",
   "scripts": {
     "del:dist": "node_modules/.bin/del-cli dist",
