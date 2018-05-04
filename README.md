@@ -14,6 +14,7 @@ npm install v3rtigo --save
 
 ### create a store
 
+eg. stores/count.js
 ``` javascript
 import { Store } from 'v3rtigo';
 
@@ -33,8 +34,7 @@ export default new CountStore();
 
 ### import store into component
 
-
-
+eg. app/hello-world.js
 ``` javascript
 import countStore from "../stores/count";
 
@@ -49,7 +49,9 @@ export class HelloWorld{
 
 ```
 
-### connect componente
+### connect-provider componente
+
+eg. app/hello-world.html
 
 ``` xml
 <template>
@@ -58,7 +60,20 @@ export class HelloWorld{
   <div>
     <h4>${this.count}</h4>
     <button click.trigger="this.incrementHandler"/>
-    <v3r:connect-provider stores="${[countStore.default]}" state-changed.subscribe="this.refresh"/>
+    <v3r:connect-provider 
+        store="${countStore.default}" 
+        event.handler="this.refresh"
+    />
   </div>
 </template>
+```
+
+### connect-provider properties
+
+``` xml
+<v3r:connect-provider 
+   store="${countStore.default}" /// obrigatory
+   event.handler="this.evtHandler" /// obrigatory
+   event="other-store-event" /// optional, default is state:changed
+/>
 ```
