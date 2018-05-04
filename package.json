@@ -1,14 +1,14 @@
 {
   "name": "v3rtigo",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "state management library for ferrugemjs applications",
   "scripts": {
     "del:dist": "node_modules/.bin/del-cli dist",
     "compile:amd": "node_modules/.bin/tsc",
     "copy:js": "copyfiles -u 1 ./src/*.js ./src/*.d.ts dist",
-    "build": "npm run del:dist && npm run compile:amd && npm run copy:js",
+    "build": "npm run lint:ts && npm run del:dist && npm run compile:amd && npm run copy:js",
     "test": "npm run del:dist && npm run compile:amd && node example/test",
-    "tslint": "./node_modules/.bin/tslint -c tslint.json ./src/**/*.ts"
+    "lint:ts": "./node_modules/.bin/tslint -c tslint.json ./src/**/*.ts"
   },
   "main": "dist/index.js",
   "repository": {
@@ -27,8 +27,12 @@
   },
   "homepage": "https://github.com/ferrugemjs/v3rtigo#readme",
   "devDependencies": {
+    "copyfiles": "^2.0.0",
     "del-cli": "^1.1.0",
-    "typescript": "^2.6.2",
-    "tslint": "^5.9.1"
+    "tslint": "^5.9.1",
+    "typescript": "^2.6.2"
+  },
+  "jspm": {
+    "format": "amd"
   }
 }

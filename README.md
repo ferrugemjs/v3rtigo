@@ -1,9 +1,64 @@
-***FerrugemJS***
+# V3rtigo
 
-![Ferrugem Logo](/assets/img/new-logo-home.png) 
+V3rtigo isa astate management library for [Ferrugemjs](https://ferrugemjs.github.io/home-page/) applications.
 
-**A simple, reactive, conventional and non-intrusive library!**
-***FerrugemJS*** is inspired by [Aurelia](http://aurelia.io/) and [React](https://facebook.github.io/react/) using [Incremental DOM](http://google.github.io/incremental-dom/) with a html template engine.
+[![NPM](https://nodei.co/npm/v3rtigo.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ferrugemjs-loader/)
 
-## Documentation/Site project
-https://ferrugemjs.github.io/home-page/
+### install
+
+```
+npm install v3rtigo --save
+```
+
+## usage
+
+### create a store
+
+``` javascript
+import { Store } from 'v3rtigo';
+
+class CountStore extends Store{
+    constructor(){
+        super();
+        this.state = 1;
+    }
+    public increment(){
+        this.setState( this.getState() + 1 );
+    }
+}
+
+export default new CountStore();
+
+```
+
+### import store into component
+
+
+
+``` javascript
+import countStore from "../stores/count";
+
+export class HelloWorld{
+  get count(){
+    return countStore.getState();
+  }
+  incrementHandler(){
+    countStore.increment();
+  }
+}
+
+```
+
+### connect componente
+
+``` xml
+<template>
+  <require from="v3rtigo as v3r" type="namespace"/>
+  <require from="../stores/count" type="script"/>
+  <div>
+    <h4>${this.count}</h4>
+    <button click.trigger="this.incrementHandler"/>
+    <v3r:connect-provider stores="${[_count.default]}" state-changed.subscribe="this.refresh"/>
+  </div>
+</template>
+```
