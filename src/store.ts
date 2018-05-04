@@ -18,6 +18,7 @@ export class Store<T> implements IStore<T>{
   }
   public dispatch(type: string, payload?: any) {
     if (this[type]) {
+      this.emit(type, payload);
       return this[type](payload);
     }
     return new Error(`Method ${type} no found in store!`);

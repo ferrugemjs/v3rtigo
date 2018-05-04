@@ -60,9 +60,9 @@ eg. app/hello-world.html
   <div>
     <h4>${this.count}</h4>
     <button click.trigger="this.incrementHandler"/>
-    <v3r:connect-provider 
-        store="${countStore.default}" 
-        event.handler="this.refresh"
+    <v3r:connect-provider
+      store="${countStore.default}"
+      event.handler="this.refresh"
     />
   </div>
 </template>
@@ -72,8 +72,15 @@ eg. app/hello-world.html
 
 ``` xml
 <v3r:connect-provider 
-   store="${countStore.default}" /// obrigatory
-   event.handler="this.evtHandler" /// obrigatory
-   event-type="other-store-event" /// optional, default is "state:changed"
+   store="${countStore.default}"
+   event.handler="this.evtHandler"
+   event-type="other-store-event"
 />
 ```
+
+- **store** : a store which will be connected (obrigatory).
+
+- **event.handler** : component handler function (obrigatory).
+
+- **event-type** : store event which will be connected (optional, default is 'state:changed').
+
