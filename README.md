@@ -74,6 +74,6 @@ eg. app/hello-world.html
 <v3r:connect-provider 
    store="${countStore.default}" /// obrigatory
    event.handler="this.evtHandler" /// obrigatory
-   event="other-store-event" /// optional, default is state:changed
+   event-type="other-store-event" /// optional, default is "state:changed"
 />
 ```
