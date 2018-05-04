@@ -1,6 +1,6 @@
 # V3rtigo
 
-V3rtigo isa astate management library for [Ferrugemjs](https://ferrugemjs.github.io/home-page/) applications.
+V3rtigo is a state management library for [Ferrugemjs](https://ferrugemjs.github.io/home-page/) applications.
 
 [![NPM](https://nodei.co/npm/v3rtigo.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ferrugemjs-loader/)
 
@@ -54,11 +54,11 @@ export class HelloWorld{
 ``` xml
 <template>
   <require from="v3rtigo as v3r" type="namespace"/>
-  <require from="../stores/count" type="script"/>
+  <require from="../stores/count as countStore" type="script"/>
   <div>
     <h4>${this.count}</h4>
     <button click.trigger="this.incrementHandler"/>
-    <v3r:connect-provider stores="${[_count.default]}" state-changed.subscribe="this.refresh"/>
+    <v3r:connect-provider stores="${[countStore.default]}" state-changed.subscribe="this.refresh"/>
   </div>
 </template>
 ```

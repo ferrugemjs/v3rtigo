@@ -3,8 +3,8 @@
   <div class='connect-provider'></div>
 </template>
 */
-define(['exports','incremental-dom','ferrugemjs/component-factory','./connect-provider'], function (exports,_idom,_libfjs_mod_,_test_comp){
-  var __test_comp_tmp = Object.keys(_test_comp)[0];
+define(['exports','incremental-dom','ferrugemjs/component-factory','./connect-provider'], function (exports,_idom,_libfjs_mod_,_connect_provider){
+  var __connect_provider_tmp = Object.keys(_connect_provider)[0];
   exports.default = (function (super_clazz){
     function _clazz_sub_KGOTTM8iaEBdx1R6FLL4kC_tmp (){
       if(super_clazz.call){
@@ -16,5 +16,5 @@ define(['exports','incremental-dom','ferrugemjs/component-factory','./connect-pr
     _clazz_sub_KGOTTM8iaEBdx1R6FLL4kC_tmp.prototype._$attrs$_ = {'name':'div','static':['class','connect-provider'],'dinamic':'\'\''};
     _clazz_sub_KGOTTM8iaEBdx1R6FLL4kC_tmp.prototype.render = function ($_this_$){  };
     return _clazz_sub_KGOTTM8iaEBdx1R6FLL4kC_tmp;
-  })(_test_comp[__test_comp_tmp] || _test_comp);
+  })(_connect_provider[__connect_provider_tmp] || _connect_provider);
 });
