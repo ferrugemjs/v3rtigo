@@ -3,7 +3,7 @@
   <div class='connect-provider'></div>
 </template>
 */
-define(['exports','incremental-dom','ferrugemjs/component-factory','./connect-provider'], function (exports,_idom,_libfjs_mod_,_connect_provider){
+define(['exports','incremental-dom','./connect-provider'], function (exports,_idom,_connect_provider){
   var __connect_provider_tmp = Object.keys(_connect_provider)[0];
   exports.default = (function (super_clazz){
     function _clazz_sub_KGOTTM8iaEBdx1R6FLL4kC_tmp (){

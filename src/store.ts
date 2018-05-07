@@ -1,10 +1,4 @@
-import { IStore } from './i-store';
-
-interface ISub {
-  handler: Function;
-  uid: string;
-  type: string;
-}
+import { IStore, ISub, ISubscriptType } from './i-store';
 
 export class Store<T> implements IStore<T>{
   private _state: T;
@@ -16,14 +10,15 @@ export class Store<T> implements IStore<T>{
   public getState(): T {
     return this._state;
   }
-  public dispatch(type: string, payload?: any) {
+  public dispatch(typeObject: string | ISubscriptType, p_payload?: any) {
+    let type = typeof typeObject === 'string' ? typeObject : typeObject.type;
+    let payload = typeof typeObject === 'string' ? p_payload : typeObject;
     if (this[type]) {
       this.emit(type, payload);
       return this[type](payload);
     }
     return new Error(`Method ${type} no found in store!`);
   }
-
   public subscribe(type: string, handler: Function) {
     let sub: ISub = {
       uid: `${new Date().getTime()}-${Math.floor(Math.random() * 10001)}`,

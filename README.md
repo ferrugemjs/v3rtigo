@@ -84,3 +84,27 @@ eg. app/hello-world.html
 
 - **event-type** : store event which will be connected (optional, default is 'state:changed').
 
+
+### Store methods
+
+#### dispatch
+``` javascript
+let payload = {desc: 'a basic info!'};
+store.dispatch('storeMethod', payload);
+store.dispatch({type: 'storeMethod' , payload});
+```
+
+#### subscribe
+``` javascript
+store.subscribe('storeMethod', payload => {
+  console.log('subscribe working', payload);
+});
+```
+
+#### unsubscribe
+``` javascript
+let unsub = store.subscribe('storeMethod', payload => {
+  console.log('subscribe working once time ', payload);
+  unsub();
+});
+```
