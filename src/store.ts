@@ -1,15 +1,18 @@
 import { IStore, ISub, ISubscriptType } from './i-store';
 
 export class Store<T> implements IStore<T>{
+
   private _state: T;
   private subs: ISub[] = [];
 
   protected set state(state: T) {
     this._state = this.cloneState(state);
   }
+
   public getState(): T {
-    return this._state;
+    return this.cloneState(this._state);
   }
+
   public dispatch(typeObject: string | ISubscriptType, p_payload?: any) {
     let type = typeof typeObject === 'string' ? typeObject : typeObject.type;
     let payload = typeof typeObject === 'string' ? p_payload : typeObject;
@@ -19,6 +22,7 @@ export class Store<T> implements IStore<T>{
     }
     return new Error(`Method ${type} no found in store!`);
   }
+
   public subscribe(type: string, handler: Function) {
     let sub: ISub = {
       uid: `${new Date().getTime()}-${Math.floor(Math.random() * 10001)}`,
@@ -40,6 +44,7 @@ export class Store<T> implements IStore<T>{
     this._state = this.cloneState(state);
     this.emit('state:changed');
   }
+
   private cloneState(state: T) {
     if (['string', 'boolean', 'number'].indexOf(typeof false)) {
       return state;
@@ -51,7 +56,8 @@ export class Store<T> implements IStore<T>{
     }
     return state;
   }
-  private emit(type: string, payload?: any) {
+
+  protected emit(type: string, payload?: any) {
     for (let i = 0, tm = this.subs.length; i < tm; i++) {
       let sub = this.subs[i];
       if (sub.handler) {
@@ -63,4 +69,5 @@ export class Store<T> implements IStore<T>{
       }
     }
   }
+
 }
