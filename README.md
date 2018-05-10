@@ -2,7 +2,7 @@
 
 V3rtigo is a state management library for [Ferrugemjs](https://ferrugemjs.github.io/home-page/) applications.
 
-[![NPM](https://nodei.co/npm/v3rtigo.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ferrugemjs-loader/)
+[![NPM](https://nodei.co/npm/v3rtigo.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/v3rtigo/)
 
 ### install
 
@@ -107,4 +107,14 @@ let unsub = store.subscribe('storeMethod', payload => {
   console.log('subscribe working once time ', payload);
   unsub();
 });
+```
+
+#### emit (it's a store protected method)
+``` javascript
+...
+  save(item){
+    ...
+    this.emit('item:saved', item);
+  }
+...
 ```
