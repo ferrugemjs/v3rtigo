@@ -13,3 +13,5 @@ editor.config
 dist/example
 dist/incremental-dom.js
 
+#test
+test.js
