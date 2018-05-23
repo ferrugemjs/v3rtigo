@@ -68,6 +68,15 @@ eg. app/hello-world.html
 </template>
 ```
 
+### With commonjs
+``` js
+const v3rtigo = require('v3rtigo/dist/commonjs/store');
+
+class CountStore extends v3rtigo.Store{
+  
+}
+export default new CountStore();
+```
 ### connect-provider properties
 
 ``` xml
