@@ -62,7 +62,7 @@ eg. app/hello-world.html
     <button click.trigger="this.incrementHandler"/>
     <v3r:connect-provider
       store="${countStore.default}"
-      event.handler="this.refresh"
+      event-handler="${this.myFunction}"
     />
   </div>
 </template>
@@ -82,14 +82,14 @@ export default new CountStore();
 ``` xml
 <v3r:connect-provider 
    store="${countStore.default}"
-   event.handler="this.evtHandler"
+   event-handler="this.evtHandler"
    event-type="other-store-event"
 />
 ```
 
 - **store** : a store which will be connected (obrigatory).
 
-- **event.handler** : component handler function (obrigatory).
+- **event.handler** : component handler function.
 
 - **event-type** : store event which will be connected (optional, default is 'state:changed').
 
