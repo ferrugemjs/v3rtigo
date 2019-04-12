@@ -6,7 +6,7 @@ export class ConnectProvider {
   private unSubs: Function[];
   private eventHandler: Function;
   public eventType: string;
-  constructor({ eventHandler, eventType = 'state:changed', target }: { eventType: string, eventHandler?: Function, target: ITarget }) {
+  constructor({ eventHandler, eventType = 'state:changed', target, store}: {store: IStore<any>, eventType: string, eventHandler?: Function, target: ITarget }) {
     if (eventHandler) {
       this.eventHandler = eventHandler.bind(target);
     } else {
@@ -14,6 +14,7 @@ export class ConnectProvider {
       this.eventHandler = target.$draw.bind(target, { key_id, is });
     }
     this.eventType = eventType;
+    this.store = store;
   }
   private attached() {
     if (this.eventHandler && this.store) {
