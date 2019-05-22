@@ -17,6 +17,7 @@ define(["exports", "incremental-dom", "./connect-provider"], function(exports, _
       if (!config_props.loaded) {
         _idom.elementOpen("fragment", "" + (config_props.key_id) + "", ["class", "connect-provider"], "is", (config_props.is), "id", (config_props.key_id));
       };
+      this.$content();
       if (!config_props.loaded) {
         _idom.elementClose("fragment");
       };

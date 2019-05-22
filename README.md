@@ -58,12 +58,12 @@ eg. app/hello-world.html
   <require from="v3rtigo as v3r" type="namespace"/>
   <require from="../stores/count as countStore" type="script"/>
   <div>
-    <h4>${this.count}</h4>
-    <button click.trigger="this.incrementHandler"/>
     <v3r:connect-provider
-      store="${countStore.default}"
-      event-handler="${this.myFunction}"
-    />
+      stores="${[countStore.default]}"
+    >
+      <h4>${this.count}</h4>
+      <button click.trigger="this.incrementHandler"/>
+    </v3r:connect-provider>
   </div>
 </template>
 ```
@@ -81,18 +81,13 @@ export default new CountStore();
 
 ``` xml
 <v3r:connect-provider 
-   store="${countStore.default}"
-   event-handler="this.evtHandler"
-   event-type="other-store-event"
-/>
+   stores="${[countStore.default]}"
+>
+...
+</v3r:connect-provider>
 ```
 
-- **store** : a store which will be connected (obrigatory).
-
-- **event.handler** : component handler function.
-
-- **event-type** : store event which will be connected (optional, default is 'state:changed').
-
+- **stores** : a list of stores which will be connected (obrigatory).
 
 ### Store methods
 

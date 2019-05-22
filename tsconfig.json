@@ -3,7 +3,7 @@
         "target": "es5"
         ,"module": "amd"
         ,"moduleResolution": "classic"
-        ,"outDir": "./dist"
+        ,"outDir": "./dist/amd"
         ,"experimentalDecorators": true
         ,"noImplicitAny":true
         ,"sourceMap": false

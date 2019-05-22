@@ -1,18 +1,18 @@
 {
   "name": "v3rtigo",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "description": "state management library for ferrugemjs applications",
   "scripts": {
     "del:dist": "node_modules/.bin/del-cli dist",
     "compile:amd": "node_modules/.bin/tsc",
     "compile:commonjs": "node_modules/.bin/tsc --module commonjs --target es5 --lib es6 --declaration true --outDir dist/commonjs src/store.ts",
-    "copy:js": "copyfiles -u 1 ./src/*.js ./src/*.d.ts dist",
+    "copy:js": "copyfiles -u 1 ./src/*.js ./src/*.d.ts dist/amd",
     "build": "npm run lint:ts && npm run del:dist && npm run compile:amd && npm run compile:commonjs && npm run copy:js",
     "test": "npm run del:dist && npm run compile:amd && node example/test",
     "lint:ts": "./node_modules/.bin/tslint -c tslint.json ./src/**/*.ts",
     "prepublish": "npm run build"
   },
-  "main": "dist/index.js",
+  "main": "dist/amd/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ferrugemjs/v3rtigo.git"

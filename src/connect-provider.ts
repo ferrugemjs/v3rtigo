@@ -1,25 +1,21 @@
 import { IStore } from './i-store';
-import { ITarget } from './i-target';
 
 export class ConnectProvider {
-  public store: IStore<any>;
+  public stores: IStore<any>[];
   private unSubs: Function[];
   private eventHandler: Function;
-  public eventType: string;
-  constructor({ eventHandler, eventType = 'state:changed', target, store}: {store: IStore<any>, eventType: string, eventHandler?: Function, target: ITarget }) {
-    if (eventHandler) {
-      this.eventHandler = eventHandler.bind(target);
-    } else {
-      const { key_id, is } = target.$props;
-      this.eventHandler = target.$draw.bind(target, { key_id, is });
-    }
-    this.eventType = eventType;
-    this.store = store;
+  private access = 0;
+  constructor({ stores }: {stores: IStore<any>[]}) {
+    this.stores = stores;
   }
+
   private attached() {
-    if (this.eventHandler && this.store) {
+    this.eventHandler = function (){
+      this.access = this.access + 1;
+    }.bind(this);
+    if (this.stores) {
       this.unSubs = [];
-      this.unSubs.push(this.store.subscribe(this.eventType, this.eventHandler));
+      this.stores.forEach(store => this.unSubs.push(store.subscribe('state:changed', this.eventHandler)));
     }
   }
   private detached() {
@@ -28,8 +24,8 @@ export class ConnectProvider {
     this.unSubs = [];
     delete this.unSubs;
 
-    this.store = null;
-    delete this.store;
+    this.stores = null;
+    delete this.stores;
 
     this.eventHandler = null;
     delete this.eventHandler;
