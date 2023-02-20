@@ -1,15 +1,17 @@
 {
   "name": "@ferrugemjs/v3rtigo",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "state management library for ferrugemjs applications",
   "scripts": {
-    "compile": "node ./compile.js",
+    "compile:tpl": "node ./compile.js",
     "del:dist": "del-cli dist",
     "compile:amd": "tsc",
     "compile:commonjs": "tsc --module commonjs --target es5 --lib es6 --declaration true --outDir dist/commonjs src/store.ts",
-    "copy:js": "copyfiles -u 1 ./src/*.js ./src/*.d.ts dist",
-    "build": "npm run del:dist && npm run compile:amd && npm run compile:commonjs && npm run copy:js",
-    "test": "npm run del:dist && npm run compile:amd && node example/test",
+    "copy:js:amd": "copyfiles -u 1 ./src/*.js ./src/*.d.ts dist/amd",
+    "copy:js:commonjs": "copyfiles -u 1 ./src/*.js ./src/*.d.ts dist/commonjs",
+    "copy:js": "npm run copy:js:amd && npm run copy:js:commonjs",
+    "build": "npm run del:dist && npm run compile:tpl && npm run compile:amd && npm run compile:commonjs && npm run copy:js",
+    "test": "npm run del:dist && npm run compile:tpl && npm run compile:amd && node example/test",
     "prepublish": "npm run build"
   },
   "main": "dist/amd/index.js",
