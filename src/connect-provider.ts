@@ -2,10 +2,9 @@ import { IStore } from './i-store';
 
 export class ConnectProvider {
   public stores: IStore<any>[];
-  private unSubs: Function[];
+  private unSubs: Function[] = [];
   constructor({ stores, eventHandler }: { stores: IStore<any>[], eventHandler: Function }) {
     this.stores = stores;
-    this.unSubs.push
     if (this.stores) {
       this.unSubs.forEach(unSub => unSub());
       this.unSubs = [];
