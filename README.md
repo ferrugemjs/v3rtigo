@@ -2,7 +2,7 @@
 
 V3rtigo is a state management library for [Ferrugemjs](https://ferrugemjs.github.io/home-page/) applications.
 
-[![NPM](https://nodei.co/npm/v3rtigo.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/v3rtigo/)
+[![NPM](https://nodei.co/npm/@ferrugemjs/v3rtigo.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/@ferrugemjs/v3rtigo/)
 
 ### install
 
@@ -16,7 +16,7 @@ npm install v3rtigo --save
 
 eg. stores/count.js
 ``` javascript
-import { Store } from 'v3rtigo';
+import { Store } from '@ferrugemjs/v3rtigo';
 
 class CountStore extends Store{
     constructor(){
@@ -45,6 +45,9 @@ export class HelloWorld{
   incrementHandler(){
     countStore.increment();
   }
+  storeChangeHandler(){
+    // react to change
+  }
 }
 
 ```
@@ -55,15 +58,15 @@ eg. app/hello-world.html
 
 ``` xml
 <template>
-  <require from="v3rtigo as v3r" type="namespace"/>
+  <require from="@ferrugemjs/v3rtigo as v3r" type="namespace"/>
   <require from="../stores/count as countStore" type="script"/>
   <div>
+    <h4>${this.count}</h4>
+    <button click.trigger="this.incrementHandler"/>
     <v3r:connect-provider
       stores="${[countStore.default]}"
-    >
-      <h4>${this.count}</h4>
-      <button click.trigger="this.incrementHandler"/>
-    </v3r:connect-provider>
+      event-handler="${this.storeChangeHandler}"
+    />
   </div>
 </template>
 ```

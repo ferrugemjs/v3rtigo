@@ -1,6 +1,6 @@
 {
   "name": "@ferrugemjs/v3rtigo",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "state management library for ferrugemjs applications",
   "scripts": {
     "compile:tpl": "node ./compile.js",
@@ -14,7 +14,7 @@
     "test": "npm run del:dist && npm run compile:tpl && npm run compile:amd && node example/test",
     "prepublish": "npm run build"
   },
-  "main": "dist/amd/index.js",
+  "browser": "dist/amd/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ferrugemjs/v3rtigo.git"
