@@ -65,7 +65,7 @@ eg. app/hello-world.html
     <button click.trigger="this.incrementHandler"/>
     <v3r:connect-provider
       stores="${[countStore.default]}"
-      event.handler="this.storeChangeHandler"
+      store-change.handler="this.storeChangeHandler"
     />
   </div>
 </template>
