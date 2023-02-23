@@ -1,6 +1,6 @@
 {
   "name": "@ferrugemjs/v3rtigo",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "state management library for ferrugemjs applications",
   "scripts": {
     "compile:tpl": "node ./compile.js",

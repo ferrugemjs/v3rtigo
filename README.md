@@ -65,7 +65,7 @@ eg. app/hello-world.html
     <button click.trigger="this.incrementHandler"/>
     <v3r:connect-provider
       stores="${[countStore.default]}"
-      event-handler="${this.storeChangeHandler}"
+      event.handler="this.storeChangeHandler"
     />
   </div>
 </template>
@@ -73,21 +73,12 @@ eg. app/hello-world.html
 
 ### With commonjs
 ``` js
-const v3rtigo = require('v3rtigo/dist/commonjs/store');
+const v3rtigo = require('@ferrugemjs/v3rtigo/dist/commonjs/store');
 
 class CountStore extends v3rtigo.Store{
   
 }
 export default new CountStore();
-```
-### connect-provider properties
-
-``` xml
-<v3r:connect-provider 
-   stores="${[countStore.default]}"
->
-...
-</v3r:connect-provider>
 ```
 
 - **stores** : a list of stores which will be connected (obrigatory).
